@@ -10,9 +10,7 @@ function spech() {
         icon.classList.remove('fa-play');
         icon.classList.add('fa-pause');
     }
-    if(outputBox.innerHTML){
-         outputBox.innerHTML = "";
-    }
+    outputBox.innerHTML = "";
 
     speechRecognition.onresult = (event) => {
         if (event) {

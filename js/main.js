@@ -14,7 +14,8 @@ function spech() {
         speechRecognition.lang = 'en-GB';
         speechRecognition.onresult = (event) => {
             if(event){
-                outputBox.textContent = event.results[0][0].transcript;
+                outputBox.innerHTML= event.results[0][0].transcript;
+                alert(event.results[0][0].transcript);
                 icon.classList.remove('fa-pause')
                 icon.classList.add('fa-play')
             }

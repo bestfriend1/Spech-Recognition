@@ -7,16 +7,20 @@ function spech() {
         icon.classList.remove('fa-play')
         icon.classList.add('fa-pause')
     }
-    let speechRecognition = new webkitSpeechRecognition();
-    speechRecognition.continuous = true;
-    speechRecognition.interimResults = true;
-    speechRecognition.lang = 'en-GB';
-    speechRecognition.onresult = (event) => {
-        if (event) {
-            outputBox.textContent = event.results[0][0].transcript;
-            icon.classList.remove('fa-pause')
-            icon.classList.add('fa-play')
+    if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+        let speechRecognition = new webkitSpeechRecognition();
+        speechRecognition.continuous = true;
+        speechRecognition.interimResults = true;
+        speechRecognition.lang = 'en-GB';
+        speechRecognition.onresult = (event) => {
+            if(event){
+                outputBox.textContent = event.results[0][0].transcript;
+                icon.classList.remove('fa-pause')
+                icon.classList.add('fa-play')
+            }
+            
         }
+        speechRecognition.start();
 
     }
 }

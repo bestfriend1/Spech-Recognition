@@ -28,10 +28,10 @@ function spech() {
             icon.classList.add('fa-play');
         }
     }
-    speechRecognition.onError = () =>{
-          console.log('Somethings Wrong');
-          icon.classList.remove('fa-pause');
-          icon.classList.add('fa-play');
+    speechRecognition.onError = () => {
+        console.log('Somethings Wrong');
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
     }
 
     speechRecognition.start();

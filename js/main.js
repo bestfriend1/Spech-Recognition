@@ -8,18 +8,19 @@ function spech() {
         icon.classList.add('fa-pause')
     }
     if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+        alert('condition true');
         let speechRecognition = new webkitSpeechRecognition();
         speechRecognition.continuous = true;
         speechRecognition.interimResults = true;
         speechRecognition.lang = 'en-GB';
         speechRecognition.onresult = (event) => {
-            if(event){
-                outputBox.innerHTML= event.results[0][0].transcript;
+            if (event) {
+                outputBox.innerHTML = event.results[0][0].transcript;
                 alert(event.results[0][0].transcript);
                 icon.classList.remove('fa-pause')
                 icon.classList.add('fa-play')
             }
-            
+
         }
         speechRecognition.start();
 

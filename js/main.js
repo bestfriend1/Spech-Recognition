@@ -5,12 +5,13 @@ const outputBox = document.getElementById('output');
 function spech() {
     let speechRecognition = new webkitSpeechRecognition();
     let final_transcript = "";
-    speechRecognition.continuous = true;
-    speechRecognition.interimResults = true;
     speechRecognition.lang = 'en-US';
     if (icon.classList.contains('fa-play')) {
         icon.classList.remove('fa-play');
         icon.classList.add('fa-pause');
+    }
+    if(outputBox.innerHTML){
+         outputBox.innerHTML = "";
     }
 
     speechRecognition.onresult = (event) => {

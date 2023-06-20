@@ -7,8 +7,9 @@ function spech() {
         icon.classList.remove('fa-play')
         icon.classList.add('fa-pause')
     }
+    alert('condition true');
     if (window.webkitSpeechRecognition || window.SpeechRecognition) {
-        alert('condition true');
+        
         let speechRecognition = new webkitSpeechRecognition();
         speechRecognition.continuous = true;
         speechRecognition.interimResults = true;
